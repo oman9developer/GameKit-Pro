@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Support – GameKit Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card: #151821;
+      --accent: #ffb74d;
+      --accent-soft: rgba(255, 183, 77, 0.12);
+      --text: #f5f5f5;
+      --muted: #b0b3c0;
+      --border: #262a36;
+      --danger: #ff6b6b;
+      --link: #64b5f6;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151821 0, #050608 55%, #020308 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #151821 0%, #090b11 100%);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 28px 26px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255, 183, 77, 0.12) 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(100, 181, 246, 0.12) 0, transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #ffe0b2 18%, #ffb74d 40%, #f57c00 100%);
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-icon-inner {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #f5f5f5 30%, #cfd8dc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(0, 0, 0, 0.35);
+    }
+
+    .app-icon-die {
+      width: 22px;
+      height: 22px;
+      border-radius: 7px;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #eceff1 40%, #b0bec5 100%);
+      box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(0, 0, 0, 0.35);
+      position: relative;
+      transform: rotate(-18deg);
+    }
+
+    .pip {
+      width: 3px;
+      height: 3px;
+      border-radius: 999px;
+      background: #263238;
+      position: absolute;
+    }
+
+    .pip.p1 { top: 4px; left: 4px; }
+    .pip.p2 { top: 4px; right: 4px; }
+    .pip.p3 { bottom: 4px; left: 4px; }
+    .pip.p4 { bottom: 4px; right: 4px; }
+    .pip.p5 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+    .title-block h1 {
+      margin: 0 0 4px;
+      font-size: 1.5rem;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(255, 183, 77, 0.4);
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 22px 0 10px;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #e0e0e0;
+    }
+
+    p {
+      margin: 6px 0 10px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-top: 18px;
+      padding: 14px 14px 12px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.02) 0, transparent 55%);
+    }
+
+    .section.highlight {
+      border-color: rgba(255, 183, 77, 0.5);
+      background:
+        radial-gradient(circle at top left, rgba(255, 183, 77, 0.12) 0, transparent 60%),
+        radial-gradient(circle at bottom right, rgba(100, 181, 246, 0.08) 0, transparent 60%);
+    }
+
+    .section h3 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #e0e0e0;
+    }
+
+    .section ul {
+      margin: 6px 0 4px 18px;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .section li {
+      margin-bottom: 4px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .pill.primary {
+      border-color: rgba(255, 183, 77, 0.6);
+      color: var(--accent);
+      background: rgba(255, 183, 77, 0.08);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.35);
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+
+    .contact-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .email {
+      font-weight: 500;
+      color: #e3f2fd;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: #757b8a;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 22px 18px 20px;
+      }
+      .page {
+        margin-top: 24px;
+      }
+      header {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <div class="card-inner">
+        <header>
+          <div class="title-block">
+            <h1>
+              GameKit Pro
+              <span class="badge">Support</span>
+            </h1>
+            <p class="subtitle">
+              Board game utility toolkit – timers, dice, counters, and more in one focused companion app.
+            </p>
+          </div>
+        </header>
+
+        <section class="section highlight">
+          <h3>Contact & Support</h3>
+          <p>
+            If you have any questions, encounter a problem, or need help with purchases or features,
+            you can reach us directly by email.
+          </p>
+          <div class="contact-box">
+            <div>
+              <div class="contact-label">Support Email</div>
+              <a class="email" href="mailto:omn9dev.app.sup@gmail.com">omn9dev.app.sup@gmail.com</a>
+            </div>
+          </div>
+          <p class="footer-note">
+            We aim to respond to requests as soon as possible.
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>Common topics</h3>
+          <ul>
+            <li>Issues with tools</li>
+            <li>Bug reports and unexpected behavior</li>
+            <li>Feature requests and usability feedback</li>
+            <li>Questions about in‑app purchases or premium tools</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill primary">Bug report</span>
+            <span class="pill primary">Feature request</span>
+            <span class="pill primary">Purchase issue</span>
+            <span class="pill primary">General feedback</span>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Restore purchases</h3>
+          <p>
+            If you previously purchased premium tools and they are not unlocked on your current device:
+          </p>
+          <ul>
+            <li>Ensure you are signed in with the same Apple/Google ID used for the original purchase.</li>
+            <li>Open <strong>GameKit Pro</strong> and go to the <strong>SideBar</strong> > <strong>Subscriptions</strong> section.</li>
+            <li>Tap <strong>Restore Purchases</strong> and wait for the confirmation message.</li>
+          </ul>
+          <p>
+            If your purchase still does not appear, please contact us with your Apple/Google receipt so we can investigate.
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>Privacy & legal</h3>
+          <p>
+            For details on how data is handled in GameKit Pro, including analytics, crash reports, and purchases,
+            please review the documents below:
+          </p>
+          <ul>
+            <li>
+              <a href="https://oman9developer.github.io/GameKit-Pro/privacy.html" target="_blank" rel="noopener noreferrer">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="https://oman9developer.github.io/GameKit-Pro/terms.html" target="_blank" rel="noopener noreferrer">
+                Terms of Use
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <p class="footer-note">
+          Please include your device model, OS version, and a short description of the issue when contacting support.
+          This helps us reproduce and fix problems faster.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
