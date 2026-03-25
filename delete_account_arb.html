@@ -1,0 +1,206 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>حذف الحساب والبيانات – GameKit Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card: #151821;
+      --accent: #ffb74d;
+      --accent-soft: rgba(255, 183, 77, 0.12);
+      --text: #f5f5f5;
+      --muted: #b0b3c0;
+      --border: #262a36;
+      --link: #64b5f6;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151821 0, #050608 55%, #020308 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #151821 0%, #090b11 100%);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 28px 26px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255, 183, 77, 0.12) 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(100, 181, 246, 0.12) 0, transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      margin-bottom: 26px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 1.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 22px 0 10px;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #e0e0e0;
+    }
+
+    p {
+      margin: 6px 0 10px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    ul {
+      margin: 6px 0 4px 18px;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-top: 18px;
+      padding: 14px 14px 12px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.02) 0, transparent 55%);
+    }
+
+    .section.highlight {
+      border-color: rgba(255, 183, 77, 0.5);
+      background:
+        radial-gradient(circle at top left, rgba(255, 183, 77, 0.12) 0, transparent 60%),
+        radial-gradient(circle at bottom right, rgba(100, 181, 246, 0.08) 0, transparent 60%);
+    }
+
+    .contact-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.35);
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+
+    .contact-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .email {
+      font-weight: 500;
+      color: #e3f2fd;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: #757b8a;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="card">
+      <div class="card-inner">
+
+        <header>
+          <h1>حذف الحساب والبيانات</h1>
+          <p class="subtitle">
+            اطلب حذف حسابك في GameKit Pro بشكل دائم وجميع البيانات المرتبطة به.
+          </p>
+        </header>
+
+        <section class="section highlight">
+          <h2>كيفية طلب الحذف</h2>
+          <p>
+            يمكنك حذف حسابك في <strong>GameKit Pro</strong> عبر الانتقال إلى <strong>الشريط الجانبي</strong> &gt; <strong>الاشتراكات</strong> ثم اختيار <strong>حذف الحساب</strong>.
+          </p>
+          <p>
+            للحصول على مساعدة إضافية، يرجى إرسال بريد إلكتروني إلى:
+          </p>
+
+          <div class="contact-box">
+            <div>
+              <div class="contact-label">بريد الدعم</div>
+              <a class="email" href="mailto:omn9dev.app.sup@gmail.com">omn9dev.app.sup@gmail.com</a>
+            </div>
+          </div>
+
+          <p class="footer-note">
+            استخدم موضوع الرسالة: <strong>طلب حذف الحساب – GameKit Pro</strong>
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>المعلومات المطلوبة</h2>
+          <p>يرجى تضمين التفاصيل التالية في بريدك الإلكتروني حتى نتمكن من معالجة طلبك:</p>
+          <ul>
+            <li>البريد الإلكتروني المرتبط بحسابك</li>
+            <li>معرّف المستخدم (إن وُجد)</li>
+            <li>تأكيد مختصر بأنك ترغب في حذف بياناتك</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>مدة المعالجة</h2>
+          <p>
+            سنؤكد استلام طلبك ونخطرك عند اكتمال عملية الحذف.
+            يتم معالجة معظم الطلبات خلال بضعة أيام عمل.
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+```
